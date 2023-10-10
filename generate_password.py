@@ -1,5 +1,10 @@
 import random
 
+intro = "-" * 40
+welcome = "{}\n  Welcome to the Password Generator! \n{}".format(
+    intro, intro)
+print(welcome)
+
 
 def user_input():
     # ask user for input
@@ -9,13 +14,16 @@ def user_input():
 
     if generate_password[0].lower() == "y":
         random_password = generate_random_password()
-        print("Here is your random password, don't share this with no one! ->", random_password)
+
+        print("\n Here is your random password, don't share this with no one! ->\n \n{} \n\n{} \n\n{}\n ".format(
+            "-"*len(random_password), random_password, "-"*len(random_password)))
 
         more_complex = input("\n Would you like a more complex password?: ")
 
         if more_complex[0].lower() == 'y':
-            complex_password = generate_random_password(70)
-            print("Here is your complex password -> ", complex_password)
+            complex_password = "ey" + generate_random_password(70)
+            print("\n Here is your complex password ->\n \n{} \n \n{} \n \n{} ".format("-"*len(complex_password),
+                  complex_password, "-"*len(complex_password)))
         else:
             return
     else:
